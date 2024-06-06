@@ -2,13 +2,8 @@ import numpy as np
 from operationsclass import IntArray
 
 def productivity_of_company(order, data_frame):
-    """"
-    num_products = 0
-    for element in data_frame[order]:
-        num_products += element
-    return num_products
-    """
     return np.sum(data_frame[order])
+
 def max_productivity(data_frame):
     i = 0
     best_company = i + 1
@@ -39,28 +34,19 @@ def mean_products(data_frame):
         average = np.mean(data_frame[i])
         print(f"On average, one human from {i}. company produced {average} products.")
 
-    """
-    for element in np.nditer(my_2d_array):
-        print(element)
-    for row in my_2d_array:
-        for element in row:
-            print(element)
-    """
-
-    sum = 0
+    total_sum = 0
     num_elements = 0
 
     for row in data_frame:
         for element in row:
             num_elements += 1
     for row in range(len(data_frame)):
-        row_sum = np.sym(data_frame[row])
-        sum += row_sum
+        row_sum = sum(data_frame[row])
+        total_sum += row_sum
 
-        total_mean = sum / num_elements
+    total_mean = total_sum / num_elements
 
-        print(f"Mean of the entire conglomerate is {total_mean} per employee.")
-
+    print(f"Mean of the entire conglomerate is {total_mean} per employee.")
 
 def file_handling():
     lines = []
